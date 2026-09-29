@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d0b">
+  <meta name="description" content="Dashboard financeiro demonstrativo em tema terminal de mercado.">
+  <title>VERTEX — Terminal financeiro</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23080d0b'/%3E%3Cpath d='m12 42 13-15 9 8 18-21' fill='none' stroke='%234bfca4' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <section id="login" class="login-screen" aria-labelledby="login-title">
+      <div class="login-art" aria-hidden="true">
+        <div class="art-top"><span class="brand-mark">⌁</span> VERTEX <span class="dim">/ FINANCE</span></div>
+        <div class="market-badge"><span class="live-dot"></span> TERMINAL FINANCEIRO <span class="badge-index">BR /
+            01</span></div>
+        <div class="art-content">
+          <p class="eyebrow">SEU CAPITAL. SEU CONTROLE.</p>
+          <h2>O mercado<br>na palma da <em>mão.</em></h2>
+          <p>Acompanhe sua carteira e explore os dados desta demonstração.</p>
+          <div class="hero-chart">
+            <div class="chart-grid"></div><svg viewBox="0 0 600 220" preserveAspectRatio="none" role="img"
+              aria-label="Gráfico decorativo de mercado">
+              <defs>
+                <linearGradient id="heroFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop stop-color="#39ef96" stop-opacity=".33" />
+                  <stop offset="1" stop-color="#39ef96" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0 172 L35 165 60 179 90 128 120 145 155 103 180 122 215 120 246 74 280 99 312 94 345 117 375 69 410 85 445 55 473 72 507 25 542 38 570 12 600 20 V220 H0Z"
+                fill="url(#heroFill)" />
+              <path
+                d="M0 172 L35 165 60 179 90 128 120 145 155 103 180 122 215 120 246 74 280 99 312 94 345 117 375 69 410 85 445 55 473 72 507 25 542 38 570 12 600 20"
+                fill="none" stroke="#4bfca4" stroke-width="3" vector-effect="non-scaling-stroke" />
+            </svg>
+          </div>
+          <div class="market-ticker"><span>IBOV <b>+1,28%</b></span><span>NASDAQ <b>+0,86%</b></span><span>BTC
+              <b>+2,43%</b></span></div>
+        </div>
+        <div class="art-footer"><span>VERTEX TERMINAL</span><span>DEMO / 2026</span></div>
+      </div>
+      <div class="login-panel">
+        <div class="mobile-brand"><span class="brand-mark">⌁</span> VERTEX</div>
+        <div class="login-box">
+          <div class="section-id"><span>01 / ACESSO</span><span class="online">● MODO DEMONSTRAÇÃO</span></div>
+          <h1 id="login-title">Bem-vindo<span class="accent">.</span></h1>
+          <p class="muted">Entre com um dos usuários fictícios do exemplo.</p>
+          <form id="login-form">
+            <label for="email">E-MAIL</label>
+            <input id="email" name="email" type="email" placeholder="seu@email.com" autocomplete="username" required>
+            <div class="label-row"><label for="password">SENHA</label><button id="toggle-password" type="button"
+                aria-label="Mostrar senha" aria-pressed="false">Mostrar</button></div>
+            <div class="password-field"><input id="password" name="senha" type="password" placeholder="Digite sua senha"
+                autocomplete="current-password" required></div>
+            <label class="check"><input id="remember" type="checkbox"> Lembrar e-mail neste dispositivo</label>
+            <button class="primary-button" type="submit">ENTRAR NO TERMINAL <span aria-hidden="true">↗</span></button>
+          </form>
+          <div class="demo-accounts"><strong>CONTAS DE EXEMPLO</strong>
+            <p><code>aluno@vertex.test</code> / <code>aula123</code></p>
+            <p><code>professor@vertex.test</code> / <code>painel456</code></p>
+          </div>
+          <p class="demo-note" id="login-feedback" role="status" aria-live="polite">Os dados são fictícios e ficam no
+            array do JavaScript.</p>
+          <div class="login-bottom"><span>PROTÓTIPO LOCAL · SEM DADOS REAIS</span><span>v.2.0</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="dashboard-screen" aria-labelledby="dash-title">
+      <aside class="sidebar" data-widget-id="sidebar">
+        <button class="widget-delete" data-delete="sidebar" type="button" aria-label="Excluir menu lateral"
+          title="Excluir menu lateral">×</button>
+        <a class="side-brand" href="#dashboard"><span class="brand-mark">⌁</span> VERTEX<span class="brand-small">/
+            FINANCE</span></a>
+        <span class="side-caption">TERMINAL / 01</span>
+        <nav aria-label="Menu principal"><a class="active" href="#overview">▦ <span>Visão geral</span></a><a
+            href="#portfolio">◈ <span>Carteira</span></a><a href="#market">⌁ <span>Mercado</span></a><a
+            href="#activity">↔ <span>Ativos</span></a></nav>
+        <div class="sidebar-bottom">
+          <div class="connection"><span class="live-dot"></span> Dados de exemplo</div><a id="logout" href="#login">↩
+            <span>Sair do painel</span></a>
+        </div>
+      </aside>
+      <div class="dashboard-main">
+        <header class="dash-header" data-widget-id="topbar">
+          <button class="widget-delete" data-delete="topbar" type="button" aria-label="Excluir barra superior"
+            title="Excluir barra superior">×</button>
+          <a class="breadcrumb" href="#overview">TERMINAL <span>/</span> VISÃO GERAL</a>
+          <div class="header-right"><a class="market-open" href="#market"><span class="live-dot"></span> DADOS
+              FICTÍCIOS</a><button class="avatar" id="user-profile" type="button"
+              aria-label="Ver usuário conectado">V</button></div>
+        </header>
+        <div class="dash-body">
+          <div class="page-heading" id="overview" data-widget-id="heading">
+            <button class="widget-delete" data-delete="heading" type="button" aria-label="Excluir título do painel"
+              title="Excluir título">×</button>
+            <div>
+              <p class="eyebrow">PAINEL FINANCEIRO / <span id="current-year">2026</span></p>
+              <h1 id="dash-title">Visão geral<span class="accent">.</span></h1>
+              <p class="muted" id="user-greeting">Acompanhe o desempenho da carteira.</p>
+              <p class="interaction-hint">Clique nos cartões, nas cotações e nas linhas. Use × para remover um elemento.
+              </p>
+            </div>
+            <a class="date-tag" href="#market">● AMBIENTE DE DEMONSTRAÇÃO</a>
+          </div>
+          <div id="hidden-notice" class="hidden-notice" hidden><span id="hidden-count"></span><button
+              id="restore-hidden" type="button">Mostrar tudo novamente</button></div>
+          <section class="stats-grid" aria-label="Indicadores financeiros">
+            <article class="stat-card balance interactive-visual" data-widget-id="metric-total" data-selectable
+              tabindex="0" role="group" aria-label="Selecionar patrimônio total"><button class="widget-delete"
+                data-delete="metric-total" type="button" aria-label="Excluir patrimônio total"
+                title="Excluir indicador">×</button>
+              <div class="stat-top">PATRIMÔNIO TOTAL <span>↗</span></div><strong>R$ 128.450,80</strong>
+              <div class="stat-bottom"><span class="positive">▲ 8,42%</span> vs. mês anterior</div>
+            </article>
+            <article class="stat-card interactive-visual" data-widget-id="metric-profit" data-selectable tabindex="0"
+              role="group" aria-label="Selecionar rentabilidade mensal"><button class="widget-delete"
+                data-delete="metric-profit" type="button" aria-label="Excluir rentabilidade"
+                title="Excluir indicador">×</button>
+              <div class="stat-top">RENTABILIDADE NO MÊS <span>↗</span></div><strong class="positive">+ R$
+                4.820,30</strong>
+              <div class="stat-bottom"><span class="positive">▲ 3,89%</span> neste mês</div>
+            </article>
+            <article class="stat-card interactive-visual" data-widget-id="metric-cash" data-selectable tabindex="0"
+              role="group" aria-label="Selecionar saldo disponível"><button class="widget-delete"
+                data-delete="metric-cash" type="button" aria-label="Excluir saldo disponível"
+                title="Excluir indicador">×</button>
+              <div class="stat-top">SALDO DISPONÍVEL <span>◌</span></div><strong>R$ 12.680,50</strong>
+              <div class="stat-bottom">Disponível para investir</div>
+            </article>
+          </section>
+          <div class="content-grid">
+            <article class="panel performance" id="portfolio" data-widget-id="chart-panel">
+              <button class="widget-delete" data-delete="chart-panel" type="button" aria-label="Excluir gráfico"
+                title="Excluir gráfico">×</button>
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">ANÁLISE DE DESEMPENHO</p>
+                  <h2>Evolução da carteira</h2>
+                </div><label class="period-select">PERÍODO <select id="period" aria-label="Período do gráfico">
+                    <option value="6m">6 meses</option>
+                    <option value="3m">3 meses</option>
+                    <option value="1m">1 mês</option>
+                  </select></label>
+              </div>
+              <div class="performance-chart interactive-visual" data-selectable tabindex="0" role="button"
+                aria-label="Clique para alternar período do gráfico">
+                <div class="axis"><span>R$ 130k</span><span>R$ 110k</span><span>R$ 90k</span><span>R$ 70k</span></div>
+                <div class="plot">
+                  <div class="plot-lines"></div><svg viewBox="0 0 700 260" preserveAspectRatio="none"
+                    aria-label="Gráfico ilustrativo de crescimento da carteira" role="img">
+                    <defs>
+                      <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                        <stop stop-color="#42efa0" stop-opacity=".22" />
+                        <stop offset="1" stop-color="#42efa0" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                    <path id="chart-area"
+                      d="M0 210 C50 204 65 226 110 194 S180 164 220 178 S290 156 335 145 S400 167 445 122 S520 115 565 78 S630 87 700 35 V260 H0Z"
+                      fill="url(#area)" />
+                    <path id="chart-line"
+                      d="M0 210 C50 204 65 226 110 194 S180 164 220 178 S290 156 335 145 S400 167 445 122 S520 115 565 78 S630 87 700 35"
+                      fill="none" stroke="#4bfca4" stroke-width="3" vector-effect="non-scaling-stroke" />
+                  </svg>
+                  <div class="months" id="chart-labels">
+                    <span>ABR</span><span>MAI</span><span>JUN</span><span>JUL</span><span>AGO</span><span>SET</span>
+                  </div>
+                </div>
+              </div>
+              <p class="panel-hint">Clique no gráfico ou escolha um período para atualizar a visualização.</p>
+            </article>
+            <article class="panel market-panel" id="market" data-widget-id="market-panel">
+              <button class="widget-delete" data-delete="market-panel" type="button"
+                aria-label="Excluir painel do mercado" title="Excluir painel">×</button>
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">COTAÇÕES</p>
+                  <h2>Mercado</h2>
+                </div><span class="live-dot"></span>
+              </div>
+              <div class="market-list">
+                <div class="asset interactive-visual" data-widget-id="quote-btc" data-selectable tabindex="0"
+                  role="group" aria-label="Selecionar cotação Bitcoin"><button class="widget-delete"
+                    data-delete="quote-btc" type="button" aria-label="Excluir cotação Bitcoin"
+                    title="Excluir cotação">×</button>
+                  <div class="asset-icon">₿</div>
+                  <div class="asset-name"><strong>Bitcoin</strong><span>BTC / BRL</span></div>
+                  <div class="asset-values"><strong>R$ 342.800</strong><span class="positive">+2,43%</span></div>
+                </div>
+                <div class="asset interactive-visual" data-widget-id="quote-ibov" data-selectable tabindex="0"
+                  role="group" aria-label="Selecionar cotação Ibovespa"><button class="widget-delete"
+                    data-delete="quote-ibov" type="button" aria-label="Excluir cotação Ibovespa"
+                    title="Excluir cotação">×</button>
+                  <div class="asset-icon">◈</div>
+                  <div class="asset-name"><strong>Ibovespa</strong><span>IBOV</span></div>
+                  <div class="asset-values"><strong>136.782 pts</strong><span class="positive">+1,28%</span></div>
+                </div>
+                <div class="asset interactive-visual" data-widget-id="quote-usd" data-selectable tabindex="0"
+                  role="group" aria-label="Selecionar cotação do dólar"><button class="widget-delete"
+                    data-delete="quote-usd" type="button" aria-label="Excluir cotação dólar"
+                    title="Excluir cotação">×</button>
+                  <div class="asset-icon">$</div>
+                  <div class="asset-name"><strong>Dólar</strong><span>USD / BRL</span></div>
+                  <div class="asset-values"><strong>R$ 5,18</strong><span class="negative">−0,34%</span></div>
+                </div>
+              </div>
+              <p class="market-foot">Cotações fictícias para demonstração.</p>
+            </article>
+          </div>
+          <section class="panel holdings" id="activity" data-widget-id="holdings-panel">
+            <button class="widget-delete" data-delete="holdings-panel" type="button" aria-label="Excluir carteira"
+              title="Excluir carteira">×</button>
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">SEUS INVESTIMENTOS</p>
+                <h2>Ativos em destaque</h2>
+              </div><span class="period">CARTEIRA</span>
+            </div>
+            <form id="asset-form" class="asset-form" aria-label="Adicionar ativo à carteira">
+              <label>CÓDIGO <input name="code" placeholder="Ex.: PETR4" maxlength="12" required
+                  pattern="[A-Za-z0-9]{2,12}"></label>
+              <label>NOME <input name="name" placeholder="Nome do ativo" maxlength="40" required></label>
+              <label>TIPO <select name="type">
+                  <option>Ações</option>
+                  <option>Fundos imobiliários</option>
+                  <option>Renda fixa</option>
+                  <option>Criptoativos</option>
+                  <option>Outro</option>
+                </select></label>
+              <label>VALOR (R$) <input name="value" type="number" placeholder="0,00" min="0" max="999999999" step="0.01"
+                  required></label>
+              <label>VARIAÇÃO (%) <input name="change" type="number" placeholder="0,00" min="-100" max="1000"
+                  step="0.01" required></label>
+              <button class="add-button" type="submit">+ Adicionar ativo</button>
+            </form>
+            <p id="asset-feedback" class="asset-feedback" role="status" aria-live="polite"></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ATIVO</th>
+                    <th>TIPO</th>
+                    <th>POSIÇÃO</th>
+                    <th>VARIAÇÃO</th>
+                    <th>AÇÃO</th>
+                  </tr>
+                </thead>
+                <tbody id="asset-rows"></tbody>
+              </table>
+            </div>
+          </section>
+          <section id="custom-notes" class="custom-notes" aria-label="Elementos adicionados"></section>
+        </div>
+        <footer id="dashboard-footer" class="dashboard-footer" data-widget-id="footer">
+          <button class="widget-delete" data-delete="footer" type="button" aria-label="Excluir rodapé"
+            title="Excluir rodapé">×</button>
+          <a class="footer-brand" href="#overview"><span class="brand-mark">⌁</span> VERTEX</a><span
+            class="footer-copy">© <span id="footer-year">2026</span> · Terminal financeiro de demonstração</span>
+          <nav class="footer-links" aria-label="Links do rodapé"><a href="#market">Ver mercado</a><a
+              href="#overview">Voltar ao topo ↑</a>
+            <details class="footer-info">
+              <summary>Sobre os dados</summary>
+              <p>Valores e cotações fictícios, apenas para demonstração.</p>
+            </details>
+          </nav>
+        </footer>
+      </div>
+      <div class="dashboard-tools" aria-label="Ações do painel"><button id="open-add-widget" type="button">＋ Adicionar
+          elemento</button><button id="undo-change" type="button" disabled>↶ Desfazer</button><button
+          id="restore-widgets" type="button">Restaurar painel</button><button id="toggle-motion" type="button"
+          aria-pressed="true">Animação: ligada</button><span id="dashboard-feedback" role="status"
+          aria-live="polite"></span></div>
+
+      <dialog id="widget-dialog" aria-labelledby="widget-dialog-title">
+        <form id="widget-form">
+          <div class="dialog-heading">
+            <h2 id="widget-dialog-title">Adicionar elemento</h2><button type="button" id="close-widget"
+              aria-label="Fechar">×</button>
+          </div><label>TIPO <select name="kind">
+              <option value="metric">Cartão de indicador</option>
+              <option value="quote">Cotação</option>
+              <option value="note">Bloco de texto</option>
+            </select></label><label>TÍTULO <input name="title" maxlength="45" placeholder="Ex.: Minha meta"
+              required></label><label>VALOR OU DESCRIÇÃO <input name="detail" maxlength="100"
+              placeholder="Ex.: R$ 5.000,00" required></label><button class="primary-button" type="submit">ADICIONAR
+            <span aria-hidden="true">↗</span></button>
+        </form>
+      </dialog>
+    </section>
+  </main>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
